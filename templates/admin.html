@@ -1,0 +1,301 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Update</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="search-tab" data-toggle="tab" href="#search" role="tab" aria-controls="search" aria-selected="false">Search</a>
+      </li>    
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Add</a>
+    </li>
+  </ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <table class="table table-success table-striped mt-4">
+            <thead>
+              <tr>
+                {% for i in students_headers %}
+                    <th scope="col">{{i}}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+                {% for i in students %}
+                <tr>
+                    {% for j in i %}
+                        <td>{{j}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+   
+
+    
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="container">
+            <h1>Update batch</h1>
+            <form action="" method="POST" style="width: 50%;margin: 30px auto 50px auto;">
+                <div class="input-field">
+                    <select name="rollNo" id="" class = "form-control mb-2 mr-sm-2" >
+                        <option value="RollNo">RollNo</option>
+                        {% for roll in roll_numbers %}
+                        <option value="{{roll}}">{{roll}}</option>
+                        {% endfor %}
+                    </select>
+                    <!-- <input type="number" name="RollNo" id="RollNo" placeholder="RollNo of Student"> -->
+                </div>
+                <div class="input-field">
+                    <select name="Batch" id="batch" class = "form-control mb-2 mr-sm-2">
+                        <option value="batch">Batch</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                    </select>
+                    <!-- <input type="text" name="proof" id="proof" placeholder="verification"> -->
+                </div>
+<<<<<<< HEAD
+                <button type="submit" name="Batch1" class="btn btn-primary">Update</button>
+=======
+                <button type="submit" name="Batch" class="">Update</button>
+>>>>>>> e63fb5ed52c7153d41bfb75ea364034f5ba9b201
+            </form>        
+        </div>
+
+        <div class="container">
+            <h1>Update Parent</h1>
+            <form action="" method="POST" style="width: 50%;margin: 30px auto 50px auto;">
+                <div class="input-field">
+                    <select name="rollNo" id="" class = "form-control mb-2 mr-sm-2" >
+                        <option value="RollNo">RollNo</option>
+                        {% for roll in roll_numbers %}
+                            <option value="{{roll}}">{{roll}}</option>
+                        {% endfor %}
+                    </select>
+                    <!-- <input type="number" name="RollNo" id="RollNo" placeholder="RollNo of Student"> -->
+                </div>
+                <div class="input-field">
+                    <select name="parentId" id="" class = "form-control mb-2 mr-sm-2" >
+                        <option value="EmailId">Parent EmailId</option>
+                        {% for roll in parentIds %}
+                            <option value="{{roll}}">{{roll}}</option>
+                        {% endfor %}
+                    </select>
+                    <!-- <input type="text" class = "form-control mb-2 mr-sm-2" name = "batch" placeholder = "Batch"> -->
+                </div>
+<<<<<<< HEAD
+                <button type="submit" name="ParentId1" class="btn btn-primary">Update</button>
+=======
+                <button type="submit" name="ParentId" class="">Update</button>
+>>>>>>> e63fb5ed52c7153d41bfb75ea364034f5ba9b201
+            </form>        
+        </div>
+        
+        <div class="container">
+            <h1>Update Password</h1>
+            <form action="" method="POST" style="width: 50%;margin: 30px auto 50px auto;">
+                <div class="input-field">
+                    <select name="EmailID" id="" class = "form-control mb-2 mr-sm-2" >
+                        <option value="EmailId">EmailId</option>
+                        {% for roll in emailids %}
+                            <option value="{{roll}}">{{roll}}</option>
+                        {% endfor %}
+                    </select>
+                    <!-- <input type="number" name="RollNo" id="RollNo" placeholder="RollNo of Student"> -->
+                </div>
+                <div class="input-field">
+                    <input type="password" name="password" placeholder = "Password" minlength="4" required>
+                    <!-- <input type="text" class = "form-control mb-2 mr-sm-2" name = "batch" placeholder = "Batch"> -->
+                </div>
+<<<<<<< HEAD
+                <button type="submit" name="Password1" class="btn btn-primary">Update</button>
+=======
+                <button type="submit" name="Password" class="">Update</button>
+>>>>>>> e63fb5ed52c7153d41bfb75ea364034f5ba9b201
+            </form>        
+        </div>
+
+    <div class="container">
+        <h1>Update Dean Award</h1>
+        <form action="" method="POST" style="width: 50%;margin: 30px auto 50px auto;">
+            <div class="input-field">
+                <select name="rollNo" id="" class = "form-control mb-2 mr-sm-2" >
+                    <option value="RollNo">RollNo</option>
+                    {% for roll in roll_numbers %}
+                    <option value="{{roll}}">{{roll}}</option>
+                    {% endfor %}
+                </select>
+                <!-- <input type="number" name="RollNo" id="RollNo" placeholder="RollNo of Student"> -->
+            </div>
+            <div class="input-field">
+                <select name="proof" id="proof" class = "form-control mb-2 mr-sm-2">
+                    <option value="">Verification</option>
+                    <option value="Verified">Verified</option>
+                    <option value="Not Verified">Not Verified</option>
+                </select>
+                <!-- <input type="text" name="proof" id="proof" placeholder="verification"> -->
+            </div>
+            <button type="submit" name="Award1" class="btn btn-primary">Update</button>
+        </form>        
+    </div>
+</div>    
+
+<div class="tab-pane fade" id="search" role="tabpanel" aria-labelledby="search-tab">
+    <div class="container">
+        <h1>Search batch</h1>
+        <form action="" method="POST" style="width: 50%;margin: 30px auto 50px auto;">
+            <div class="input-field">
+                <select name="rollNo" id="" class = "form-control mb-2 mr-sm-2" >
+                    <option value="RollNo">RollNo</option>
+                    {% for roll in roll_numbers %}
+                    <option value="{{roll}}">{{roll}}</option>
+                    {% endfor %}
+                </select>
+                <!-- <input type="number" name="RollNo" id="RollNo" placeholder="RollNo of Student"> -->
+            </div>
+            <div class="input-field">
+                <select name="batch" id="batch" class = "form-control mb-2 mr-sm-2">
+                    <option value="batch">Batch</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                </select>
+                <!-- <input type="text" name="proof" id="proof" placeholder="verification"> -->
+            </div>
+            <button type="submit" name="Batch1" class="btn btn-primary">Search</button>
+        </form>        
+    </div>
+
+    <div class="container">
+        <h1>Search Parent</h1>
+        <form action="" method="POST" style="width: 50%;margin: 30px auto 50px auto;">
+            <div class="input-field">
+                <select name="rollNo" id="" class = "form-control mb-2 mr-sm-2" >
+                    <option value="RollNo">RollNo</option>
+                    {% for roll in roll_numbers %}
+                        <option value="{{roll}}">{{roll}}</option>
+                    {% endfor %}
+                </select>
+                <!-- <input type="number" name="RollNo" id="RollNo" placeholder="RollNo of Student"> -->
+            </div>
+            <div class="input-field">
+                <select name="parentId" id="" class = "form-control mb-2 mr-sm-2" >
+                    <option value="EmailId">Parent EmailId</option>
+                    {% for roll in parentIds %}
+                        <option value="{{roll}}">{{roll}}</option>
+                    {% endfor %}
+                </select>
+                <!-- <input type="text" class = "form-control mb-2 mr-sm-2" name = "batch" placeholder = "Batch"> -->
+            </div>
+            <button type="submit" name="ParentId1" class="btn btn-primary">Search</button>
+        </form>        
+    </div>
+
+<div class="container">
+    <h1>Search Dean Awardee</h1>
+    <form action="" method="POST" style="width: 50%;margin: 30px auto 50px auto;">
+        <div class="input-field">
+            <select name="rollNo" id="" class = "form-control mb-2 mr-sm-2" >
+                <option value="RollNo">RollNo</option>
+                {% for roll in roll_numbers %}
+                <option value="{{roll}}">{{roll}}</option>
+                {% endfor %}
+            </select>
+            <!-- <input type="number" name="RollNo" id="RollNo" placeholder="RollNo of Student"> -->
+        </div>
+        <div class="input-field">
+            <select name="proof" id="proof" class = "form-control mb-2 mr-sm-2">
+                <option value="">Verification</option>
+                <option value="Verified">Verified</option>
+                <option value="Not Verified">Not Verified</option>
+            </select>
+            <!-- <input type="text" name="proof" id="proof" placeholder="verification"> -->
+        </div>
+        <button type="submit" name="Award1" class="btn btn-primary">Search</button>
+    </form>
+    {% if studentDetails %}
+    <table class="table  table-striped"git >
+        <!-- <thead>
+        <tr>
+            <th scope="col">RollNo</th>
+            <th scope="col">UserID</th>
+            <th scope="col">ParentId</th>
+            <th scope="col">Degree</th>
+            <th scope="col">Batch</th>
+            <th scope="col">Major</th>
+            <th scope="col">GPA</th>
+        </tr>
+        </thead> -->
+        <tbody>
+            {% for row in studentDetails: %}
+
+            <tr>
+                <!-- <th scope="row">1</th> -->
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>{{row[6]}}</td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}            
+</div> 
+</div>
+{% if achievementDetails !="" %}
+    <div class="table-responsive container mt-5">
+        <table class="table table-success table-striped shadow">
+            <!-- <thead>
+            <tr>
+                <th scope="col">StudentId</th>
+                <th scope="col">Title</th>
+                <th scope="col">Technical</th>
+                <th scope="col">Verified</th>
+                <th scope="col">Institution</th>
+            </tr>
+            </thead> -->
+            <tbody>
+                {% for row in achievementDetails %}
+
+                <tr>
+                    <!-- <th scope="row">1</th> -->
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+
+</div>
+</div>
+<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"></div>
+
+{% endblock %}

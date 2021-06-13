@@ -1,0 +1,306 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link active" id="select-tab" data-toggle="tab" href="#select" role="tab" aria-controls="select" aria-selected="true">select</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="insert-tab" data-toggle="tab" href="#insert" role="tab" aria-controls="insert" aria-selected="false">insert</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="update-tab" data-toggle="tab" href="#update" role="tab" aria-controls="update" aria-selected="false">update</a>
+		</li>
+
+		<li class="nav-item">
+			<!-- <a class="nav-link" id="delete-tab" data-toggle="tab" href="#delete" role="tab" aria-controls="delete" aria-selected="false">delete</a> -->
+		</li>
+</ul>
+<div class="tab-content mt-5" id="myTabContent">
+		<div class="tab-pane fade show active" id="select" role="tabpanel" aria-labelledby="select-tab">
+
+            <h1 class="mb-4">Your Education</h1>
+            <!-- {{myEducation}} -->
+            {% if myEducation %}
+			<table class="table table-success table-striped">
+                <thead>
+                <tr>
+                        <th scope="col">EducationId</th>
+                        <th scope="col">Institution</th>
+                        <th scope="col">Degree</th>
+                        <th scope="col">Graduation Year</th>
+                        <th scope="col">Major</th>
+                </tr>
+                </thead>
+                <tbody>
+                        {% for row in myEducation: %}
+                        <tr>
+                            {% for col in row %}
+                                <td>{{col}}</td>
+                            {% endfor %} 
+                        </tr>
+                        {% endfor %}
+                </tbody>
+			</table>
+			{% endif %}
+
+            
+			<h1 class="mb-4">Your Projects</h1>
+
+			<!-- {{myProjects}} -->
+
+			{% if myProjects %}
+			<table class="table table-success table-striped">
+                <thead>
+                <tr>
+                        <th scope="col">ProjectId</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">MentorId</th>
+                        <th scope="col">StartDate</th>
+                        <th scope="col">EndDate</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Field</th>
+                        <th scope="col">Domain</th>
+                </tr>
+                </thead>
+                <tbody>
+                        {% for row in myProjects: %}
+                        <tr>
+                            {% for col in row %}
+                                <td>{{col}}</td>
+                            {% endfor %} 
+                        </tr>
+                        {% endfor %}
+                </tbody>
+			</table>
+			{% endif %}
+
+            <h1 class="mb-4">Your Achivements</h1>
+
+            <table class="table table-success table-striped">
+                <thead>
+                <tr>
+                        <th scope="col">Achivement</th>
+                </tr>
+                </thead>
+                <tbody>
+                        {% for row in Achivements: %}
+                        <tr>
+                            {% for col in row %}
+                                <td>{{col}}</td>
+                            {% endfor %} 
+                        </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+            
+            <div>
+                <h1 class="mt-4">See your GPA</h1>
+                <h3 class="my-4">Your Current GPA is <span style="font-size: 2rem;color: rgb(6, 92, 42);">{{gpa}}</span></h3>
+            
+            </div>
+
+            <div class="">
+                <h1 class="my-4">companies you are eligible for</h1>
+                <!-- {{eligibleCompanies}} -->
+                <table class="table table-success table-striped">
+                    <thead>
+                    <tr>
+                            <th scope="col">RecruiterId</th>
+                            <th scope="col">UserId</th>
+                            <th scope="col">Company</th>
+                            <th scope="col">Year</th>
+                            <th scope="col">Vacancy</th>
+                            <th scope="col">Recruited</th>
+                            <th scope="col">EligibleGPA</th>
+                            <th scope="col">Offer</th>
+                            <th scope="col">Criteria</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                            {% for row in eligibleCompanies: %}
+                            <tr>
+                                {% for col in row %}
+                                    <td>{{col}}</td>
+                                {% endfor %} 
+                            </tr>
+                            {% endfor %}
+                    </tbody>
+                </table>
+            </div> 
+
+
+		</div>
+		<div class="tab-pane fade mt-5" id="insert" role="tabpanel" aria-labelledby="insert-tab">
+				
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <h1 class="mb-4">Your Skills</h1>
+                        <!-- <h3>{{skills}}</h3> -->
+                    
+                        <table class="table table-success table-striped">
+                            <thead>
+                            <tr>
+                                    <th scope="col">Skill</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                    {% for row in skills: %}
+                                    <tr>
+                                        {% for col in row %}
+                                            <td>{{col}}</td>
+                                        {% endfor %} 
+                                    </tr>
+                                    {% endfor %}
+                            </tbody>
+                        </table>
+                    
+                        <h4 class="my-4">Add new Skill</h4>
+                        <form action="" method="POST" style="margin: 30px auto 50px auto;">
+                            <div class="input-field">
+                                <input type="string" name="title" id="title" placeholder="Name Of the Skill">
+                            </div>
+                            <div class="input-field">
+                                <input type="string" name="url" id="url" placeholder="Link to Certificate">
+                            </div>
+                            
+                            <button type="submit" name="AddSkill" class="">Add Skill</button>
+                            
+                        </form>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div>
+                        <h1 class="mb-4">Your Achivements</h1>
+                        <!-- <h3>{{Achivements}}</h3> -->
+                    
+                        <table class="table table-success table-striped">
+                            <thead>
+                            <tr>
+                                    <th scope="col">Achivement</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                    {% for row in Achivements: %}
+                                    <tr>
+                                        {% for col in row %}
+                                            <td>{{col}}</td>
+                                        {% endfor %} 
+                                    </tr>
+                                    {% endfor %}
+                            </tbody>
+                        </table>
+                    
+                        <h4 class="my-4">Add new Achivements</h4>
+                        <form action="" method="POST" style="margin: 30px auto 50px auto;">
+                            <div class="input-field">
+                                <input type="string" name="institute" id="institute" placeholder="Name of the institution">
+                                <input type="string" class="ml-3" name="title" id="title" placeholder="Title for Achivement">
+                                
+                            </div>
+                            <div class="input-field" >
+                                <select name="type" id="type" class="mr-3">
+                                    <option value="tech">Technical</option>
+                                    <option value="nonTech">Non Technical</option>
+                                </select>
+                                <input type="string" name="proof" id="proof" placeholder="Attach link For proof">
+                            </div>
+                            
+                            <button type="submit" name="AddAch" class="">Add Achivement</button>
+                            
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <h1 class="mb-4">Your Education</h1>
+                    <!-- {{myEducation}} -->
+                    {% if myEducation %}
+                    <table class="table table-success table-striped">
+                        <thead>
+                        <tr>
+                                <th scope="col">EducationId</th>
+                                <th scope="col">Institution</th>
+                                <th scope="col">Degree</th>
+                                <th scope="col">Graduation Year</th>
+                                <th scope="col">Major</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                                {% for row in myEducation: %}
+                                <tr>
+                                    {% for col in row %}
+                                        <td>{{col}}</td>
+                                    {% endfor %} 
+                                </tr>
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                    {% endif %}
+
+                    <h4>Add new Education</h4>
+
+                    <form action="" method="POST" class="mb-5">
+                        <div class="input-field">
+                            <input type="text" name="educationId" placeholder=" Enter EducationId">
+                        </div>
+                        <button type="submit" name="addEducation">Add Education</button>
+                    </form>
+                </div>
+
+            </div>
+
+		</div>
+		<div class="tab-pane fade" id="update" role="tabpanel" aria-labelledby="update-tab">
+            <div>
+                <h1>Update BIO</h1>
+                 <h3> Your Current Bio: <br> {{bio}}</h3>
+                <form action="" method="POST" style="width: 50%;margin: 30px auto 50px auto;">
+                    <div class="input-field">
+                        <input type="string" name="bio" id="bio" placeholder="Your Bio">
+            
+                    </div>
+                    
+                    <button type="submit" name="UpdateBio" class="">Update Bio</button>
+                    
+                </form>
+            </div>
+                       
+        </div>
+        
+		<!-- <div class="tab-pane fade" id="delete" role="tabpanel" aria-labelledby="delete-tab">...</div> -->
+</div>
+
+
+
+
+
+<!-- <div>
+    <h1>Your Education</h1>
+     <h3>{{education}}</h3>
+     <h4>Add new education</h4>
+    <form action="" method="POST" style="width: 50%;margin: 30px auto 50px auto;">
+        <div class="input-field">
+            <input type="string" name="institute" id="institute" placeholder="Name of the institution">
+            <input type="string" name="title" id="title" placeholder="Title for Achivement">
+            <select name="type" id="type">
+                <option value="tech">Technical</option>
+                <option value="nonTech">Non Technical</option>
+            </select>
+            <input type="string" name="proof" id="proof" placeholder="Attach link For proof">
+        </div>
+        
+        <button type="submit" name="AddAch" class="">Add Achivement</button>
+        
+    </form>
+</div> -->
+            <!-- <input type="number" name="educationID" id="educationID" placeholder="educationID" class="mx-3">
+            <select name="operation" id="operation">
+                
+                <option value="Insert">Insert</option>
+                <option value="Update">Update</option>
+                <option value="Delete">Delete</option>
+              
+            </select> -->
+{% endblock %}
